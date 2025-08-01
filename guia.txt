@@ -1,0 +1,65 @@
+
+
+¿Qué es el token JWT?
+
+JWT (JSON Web Token) es como un "boleto de entrada" digital que el servidor le da al cliente cuando inicia sesión correctamente.
+
+¿Para qué sirve?
+Autenticación: Saber quién es el usuario sin pedirle la contraseña cada vez
+Autorización: Saber qué puede hacer el usuario (admin, usuario normal, etc.)
+Estado sin sesiones: No necesitas guardar sesiones en el servidor
+
+
+Nueva Clase: Fullstack con React y Express - Autenticación JWT
+📚 Descripción de la Clase
+En esta clase avanzamos nuestro proyecto fullstack integrando autenticación JWT entre el frontend (React) y backend (Express).
+
+🔧 Nuevos Elementos Agregados
+
+    Backend (Express)
+        Autenticación JWT: Sistema de login que genera tokens para usuarios
+        Rutas protegidas: Middleware que verifica tokens antes de acceder a datos sensibles
+        Contexto de usuarios: Manejo del estado de autenticación en el backend
+        Conexión MySQL: Integración con base de datos para validar credenciales
+
+    Frontend (React)
+        UserContext: Contexto para manejar el estado global del usuario autenticado
+        LoginForm: Componente de inicio de sesión que consume la API
+        Rutas protegidas: Componente ProtectedRoute que redirige si no hay token
+        Estructura Dashboard: Menú lateral (Aside) y contenido principal (Content)
+        Consumo de API protegida: Componente ListUsuarios que usa tokens para obtener datos
+
+🎯 Funcionalidades Clave
+        Login seguro con validación de credenciales
+        Tokens JWT para mantener sesión sin cookies
+        Protección de rutas en ambos frontend y backend
+        Persistencia de sesión usando localStorage
+        Comunicación segura entre React y Express
+
+ 🚀 Flujo de Autenticación
+        1. Usuario ingresa credenciales → LoginForm
+        2. React envía datos a Express → /api/auth/login
+        3. Express valida en MySQL y genera JWT
+        4. Token se guarda en localStorage
+        5. React usa token para acceder a rutas protegidas
+        6. Express verifica token en cada petición protegida
+
+🔐 Seguridad Implementada
+        Tokens JWT con expiración
+        Headers de autorización en peticiones
+        Validación de credenciales en base de datos
+        Protección de rutas sensibles
+        Manejo seguro de sesiones
+
+💡 Para la Próxima Clase
+        Encriptación de contraseñas con bcrypt
+        Roles y permisos de usuarios
+        Refresh tokens para sesiones prolongadas
+
+
+
+
+
+
+
+
