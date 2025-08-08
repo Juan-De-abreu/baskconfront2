@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎮 API de Juegos - Documentación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      border: 1px solid #333;
+    }
+
+    h1 {
+      color: #4db6ac;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #9e9e9e;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .status {
+      text-align: center;
+      padding: 12px;
+      background: #157acc;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+    }
+
+    .section {
+      margin-bottom: 35px;
+      border-left: 4px solid #03a9f4;
+      padding-left: 16px;
+      border: #03a8f43a 1px solid;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      color: #64b5f6;
+      font-size: 1.4em;
+      margin: 10px 0;
+      display: inline-block;
+      background: #2a2a2a;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border-bottom: 1px solid #64b5f6;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+
+      background: #2a2a2a;
+      margin: 8px 0;
+      padding: 14px 18px;
+         border: 1px solid #2a2a2a;
+      border-left: 5px solid #03a9f4;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      transition: all 0.3s;
+      
+    }
+
+    li:hover {
+      background: #1f4d70;
+      transform: scale(1.01) translateX(10px);
+      border: 1px solid grey;
+      border-left: 5px solid #03a9f4;
+    }
+
+    code {
+      background: #333;
+      color: #80deea;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.95em;
+      border: 1px solid #424242;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #03a9f4;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85em;
+      font-weight: bold;
+      margin-right: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .info-box {
+      background: #262626;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid #424242;
+      font-size: 0.95em;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #757575;
+      font-size: 0.9em;
+      padding-top: 20px;
+      border-top: 1px solid #424242;
+    }
+
+    .container {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .titulobd{
+        border-bottom: #03a9f4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulobd">🎮 API de Juegos</h1>
+    <p class="subtitle">Sistema de gestión de videojuegos con Node.js + Express + MySQL</p>
+
+    <div class="status">✅ Servidor activo en el puerto {{PORT}}</div>
+
+    <!-- Sección: Géneros -->
+    <div class="section">
+      <h2 class="section-title">📚 Géneros</h2>
+      <ul>
+        <li><span class="badge">GET</span> <strong>/api/generos</strong> <br><small>Obtiene todos los géneros disponibles</small></li>
+        <li><span class="badge">GET</span> <strong>/api/generos/:id</strong> <br><small>Obtiene un género específico por ID</small></li>
+        <li><span class="badge">POST</span> <strong>/api/generos</strong> <br><small>Crea un nuevo género (JSON: { nombre })</small></li>
+        <li><span class="badge">PUT</span> <strong>/api/generos/:id</strong> <br><small>Actualiza un género existente</small></li>
+        <li><span class="badge">DELETE</span> <strong>/api/generos/:id</strong> <br><small>Elimina un género por ID</small></li>
+      </ul>
+    </div>
+
+    <!-- Sección: Plataformas -->
+    <div class="section">
+      <h2 class="section-title">🕹️ Plataformas</h2>
+      <ul>
+        <li><span class="badge">GET</span> <strong>/api/plataformas</strong> <br><small>Lista todas las plataformas</small></li>
+        <li><span class="badge">GET</span> <strong>/api/plataformas/:id</strong> <br><small>Obtiene una plataforma por ID</small></li>
+        <li><span class="badge">POST</span> <strong>/api/plataformas</strong> <br><small>Crea una nueva plataforma (JSON: { nombre })</small></li>
+        <li><span class="badge">PUT</span> <strong>/api/plataformas/:id</strong> <br><small>Actualiza una plataforma existente</small></li>
+        <li><span class="badge">DELETE</span> <strong>/api/plataformas/:id</strong> <br><small>Elimina una plataforma por ID</small></li>
+      </ul>
+    </div>
+
+    <!-- Sección: Juegos -->
+    <div class="section">
+      <h2 class="section-title">🎯 Juegos</h2>
+      <ul>
+        <li><span class="badge">GET</span> <strong>/api/juegos</strong> <br><small>Obtiene todos los juegos con sus relaciones (género, plataforma)</small></li>
+        <li><span class="badge">GET</span> <strong>/api/juegos/:id</strong> <br><small>Obtiene un juego específico por ID</small></li>
+        <li><span class="badge">POST</span> <strong>/api/juegos</strong> <br><small>Crea un nuevo juego. Usa <code>multipart/form-data</code> con campo <code>imagen</code></small></li>
+        <li><span class="badge">PUT</span> <strong>/api/juegos/:id</strong> <br><small>Actualiza un juego existente. También admite nueva imagen</small></li>
+        <li><span class="badge">DELETE</span> <strong>/api/juegos/:id</strong> <br><small>Elimina un juego por ID (la imagen se borra del servidor)</small></li>
+      </ul>
+    </div>
+
+    <!-- Sección: usuarios -->
+    <div class="section">
+      <h2 class="section-title">🎯 usuarios</h2>
+      <ul>
+        <li><span class="badge">GET</span> <strong>/api/usuarios</strong> <br><small>Obtiene todos los juegos con sus relaciones (género, plataforma)</small></li>
+        <li><span class="badge">GET</span> <strong>/api/usuarios/:id</strong> <br><small>Obtiene un juego específico por ID</small></li>
+        <li><span class="badge">POST</span> <strong>/api/usuarios</strong> <br><small>Crea un nuevo juego. Usa <code>multipart/form-data</code> con campo <code>imagen</code></small></li>
+        <li><span class="badge">PUT</span> <strong>/api/usuarios/:id</strong> <br><small>Actualiza un juego existente. También admite nueva imagen</small></li>
+        <li><span class="badge">DELETE</span> <strong>/api/usuarios/:id</strong> <br><small>Elimina un juego por ID (la imagen se borra del servidor)</small></li>
+      </ul>
+    </div>
+
+    <!-- Sección: Dashboard -->
+    <div class="section">
+      <h2 class="section-title">📊 Resumen (Dashboard)</h2>
+      <ul>
+        <li><span class="badge">GET</span> <strong>/api/dashboard/resumen</strong> <br><small>Devuelve estadísticas: total juegos, géneros, plataformas, juegos por género, etc.</small></li>
+      </ul>
+    </div>
+
+    <!-- Subida de imágenes -->
+     <div class="section">
+    <h2>🖼️ Subida de Imágenes</h2>
+    <div class="info-box">
+      <p><strong>Multer</strong> maneja la subida de imágenes:</p>
+      <ul style="padding-left: 15px;">
+        <li>Las imágenes se guardan en: <code>uploads/juegos/img/</code></li>
+        <li>Nombre generado automáticamente (ej: <code>juego_1722234567890-123456789.jpg</code>)</li>
+        <li>Acceso público en: <code>http://localhost:{{PORT}}/uploads/juegos/img/nombre-imagen.jpg</code></li>
+      </ul>
+    </div>
+    </div>
+
+    <!-- Base de datos -->
+     <div class="section">
+    <h2>🔌 Base de Datos</h2>
+    <div class="info-box">
+      <p>Conexión a MySQL usando <code>mysql2</code>. Modelo relacional entre juegos, géneros y plataformas.</p>
+      <p>Configuración cargada desde <code>.env</code> (HOST, USER, PASS, DB, PORT).</p>
+    </div>
+</div>
+
+    <!-- Procesos -->
+     <div class="section">
+    <h2>🛠️ Procesos del Servidor</h2>
+    <div class="info-box">
+      <ul style="padding-left: 0;">
+        <li><strong>CORS:</strong> Habilitado para todas las solicitudes</li>
+        <li><strong>Body Parser:</strong> JSON y form-data soportados</li>
+        <li><strong>Multer:</strong> Middleware para subir y procesar imágenes</li>
+        <li><strong>Logging:</strong> Middleware de depuración activo (ver consola del servidor)</li>
+      </ul>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      API desarrollada con Express.js • <em>Actualizado: <span id="fecha"></span></em>
+      <p>Desarrollado por <a href="https://www.arsistema.com" target="_blank">Juan De Abreu</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('fecha').textContent = new Date().toLocaleString('es-ES');
+  </script>
+</body>
+</html>

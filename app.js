@@ -13,6 +13,7 @@ const juegoRoutes = require('./routes/juegoRoutes');
 const generoRoutes = require('./routes/generoRoutes');
 const plataformaRoutes = require('./routes/plataformaRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
 
 // Inicializamos la aplicación Express
 const app = express();
@@ -44,9 +45,24 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // Ruta de prueba
 app.get('/', (req, res) => {
-  res.send('Servidor funcionando correctamente con buenas prácticas!');
+  const fs = require('fs');
+  const path = require('path');
+
+  const filePath = path.join(__dirname, 'views', 'home.html');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error al cargar la página de inicio.');
+    }
+
+    // Reemplazar {{PORT}} por el puerto real
+    const html = data.replace(/{{PORT}}/g, PORT);
+
+    res.send(html);
+  });
 });
 
 // Usar las rutas
@@ -54,6 +70,7 @@ app.use('/api/juegos', juegoRoutes);
 app.use('/api/generos', generoRoutes);
 app.use('/api/plataformas', plataformaRoutes);
 app.use('/api', dashboardRoutes); // → /api/dashboard/resumen
+app.use('/api/usuarios', usuarioRoutes);
 
 
 // Prueba de conexión a la base de datos

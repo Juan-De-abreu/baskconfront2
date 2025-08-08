@@ -7,7 +7,7 @@ const {
   getUsuarioById,
   createUsuario,
   updateUsuario,
-  deleteUsuario,
+  deleteUsuario
 } = require('../controllers/usuarioController');
 
 // Rutas RELATIVAS (sin /usuarios)
