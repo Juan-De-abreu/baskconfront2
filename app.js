@@ -8,12 +8,14 @@ const cors = require('cors');
 
 const db = require('./config/db');
 
-// Importamos las rutas
+// Importamos las 
+
 const juegoRoutes = require('./routes/juegoRoutes');
 const generoRoutes = require('./routes/generoRoutes');
 const plataformaRoutes = require('./routes/plataformaRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // Inicializamos la aplicación Express
 const app = express();
@@ -71,6 +73,7 @@ app.use('/api/generos', generoRoutes);
 app.use('/api/plataformas', plataformaRoutes);
 app.use('/api', dashboardRoutes); // → /api/dashboard/resumen
 app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/auth', authRoutes); 
 
 
 // Prueba de conexión a la base de datos
