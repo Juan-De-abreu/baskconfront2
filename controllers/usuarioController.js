@@ -42,8 +42,8 @@ const createUsuario = async (req, res) => {
     return res.status(400).json({ error: 'El campo password es requerido y debe tener al menos 6 caracteres' });
   }
 
-  if (!['cliente', 'admin'].includes(rol)) {
-    return res.status(400).json({ error: 'El campo rol debe ser "cliente" o "admin"' });
+  if (!['operador', 'admin','vendedor'].includes(rol)) {
+    return res.status(400).json({ error: 'El campo rol debe ser "vendedor","operador" o "admin"' });
   }
 
   if (![0, 1].includes(Number(activo))) {
